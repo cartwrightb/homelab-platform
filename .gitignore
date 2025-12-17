@@ -1,0 +1,16 @@
+# OS / Editor
+.vscode/
+.DS_Store
+
+# Secrets / env files
+.env
+*.env
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# Kubernetes secrets
+secrets.yaml
+secrets/*.yaml
