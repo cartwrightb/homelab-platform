@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sabnzbd
+  namespace: media
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sabnzbd
+  template:
+    metadata:
+      labels:
+        app: sabnzbd
+    spec:
+      containers:
+      - name: sabnzbd
+        image: linuxserver/sabnzbd:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: TZ
+          value: "Europe/London"
+        - name: PUID
+          value: "911"
+        - name: PGID
+          value: "911"
+        volumeMounts:
+        - name: config
+          mountPath: /config
+        - name: media
+          mountPath: /downloads
+          subPath: downloads
+        - name: media
+          mountPath: /incomplete-downloads
+          subPath: incomplete-downloads
+      volumes:
+      - name: config
+        persistentVolumeClaim:
+          claimName: sabnzbd-config
+      - name: media
+        persistentVolumeClaim:
+          claimName: media
+
