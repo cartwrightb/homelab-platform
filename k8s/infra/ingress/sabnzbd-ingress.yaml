@@ -1,19 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: jellyfin
+  name: sabnzbd
   namespace: media
 spec:
   ingressClassName: traefik
   rules:
-  - host: jellyfin.home.lan
+  - host: sabnzbd.home.lan
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: jellyfin
+            name: sabnzbd
             port:
-              number: 8096
+              number: 8080
 

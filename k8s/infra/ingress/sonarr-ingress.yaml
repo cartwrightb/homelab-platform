@@ -1,19 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: jellyfin
+  name: sonarr
   namespace: media
 spec:
   ingressClassName: traefik
   rules:
-  - host: jellyfin.home.lan
+  - host: sonarr.home.lan
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: jellyfin
+            name: sonarr
             port:
-              number: 8096
+              number: 8989
 
