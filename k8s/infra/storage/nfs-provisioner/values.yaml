@@ -1,0 +1,8 @@
+nfs:
+  path: /export/k8s-appdata
+  server: 192.168.0.13
+storageClass:
+  archiveOnDelete: true
+  defaultClass: false
+  name: nfs-client
+  reclaimPolicy: Retain
