@@ -1,0 +1,14 @@
+
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: wildcard-home-lan
+  namespace: media
+spec:
+  secretName: wildcard-home-lan-tls
+  issuerRef:
+    name: homelan-ca
+    kind: ClusterIssuer
+  dnsNames:
+    - "*.home.lan"
+    - "home.lan"

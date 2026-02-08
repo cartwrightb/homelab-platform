@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: homelan-root-ca
+  namespace: cert-manager
+spec:
+  isCA: true
+  commonName: homelan-root-ca
+  secretName: homelan-root-ca
+  issuerRef:
+    name: homelan-selfsigned
+    kind: ClusterIssuer
+
