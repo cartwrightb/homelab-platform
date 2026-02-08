@@ -15,8 +15,9 @@
 secrets.yaml
 secrets/*.yaml
 
-# Helm rendered manifests (reference-only)
-rendered-manifest.yaml
+# Helm / rendered artefacts (do not GitOps these)
+**/rendered-manifest.yaml
+**/*.tgz
 
 # PKI / certificates (client-side artefacts)
 *.crt
