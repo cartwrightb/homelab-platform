@@ -17,3 +17,8 @@ secrets/*.yaml
 
 # Helm rendered manifests (reference-only)
 rendered-manifest.yaml
+
+# PKI / certificates (client-side artefacts)
+*.crt
+*.pem
+*.key
