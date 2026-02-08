@@ -5,6 +5,10 @@ metadata:
   namespace: media
 spec:
   ingressClassName: traefik
+  tls:
+  - hosts:
+    - sonarr.home.lan
+    secretName: wildcard-home-lan-tls
   rules:
   - host: sonarr.home.lan
     http:
@@ -16,4 +20,3 @@ spec:
             name: sonarr
             port:
               number: 8989
-

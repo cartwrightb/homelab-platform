@@ -5,6 +5,10 @@ metadata:
   namespace: media
 spec:
   ingressClassName: traefik
+  tls:
+  - hosts:
+    - jellyfin.home.lan
+    secretName: wildcard-home-lan-tls
   rules:
   - host: jellyfin.home.lan
     http:
@@ -16,4 +20,3 @@ spec:
             name: jellyfin
             port:
               number: 8096
-

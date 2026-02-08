@@ -5,6 +5,10 @@ metadata:
   namespace: media
 spec:
   ingressClassName: traefik
+  tls:
+  - hosts:
+    - sabnzbd.home.lan
+    secretName: wildcard-home-lan-tls
   rules:
   - host: sabnzbd.home.lan
     http:
@@ -16,4 +20,3 @@ spec:
             name: sabnzbd
             port:
               number: 8080
-

@@ -5,6 +5,10 @@ metadata:
   namespace: media
 spec:
   ingressClassName: traefik
+  tls:
+  - hosts:
+    - radarr.home.lan
+    secretName: wildcard-home-lan-tls
   rules:
   - host: radarr.home.lan
     http:
@@ -16,4 +20,3 @@ spec:
             name: radarr
             port:
               number: 7878
-
