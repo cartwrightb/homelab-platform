@@ -14,3 +14,6 @@
 # Kubernetes secrets
 secrets.yaml
 secrets/*.yaml
+
+# Helm rendered manifests (reference-only)
+rendered-manifest.yaml
