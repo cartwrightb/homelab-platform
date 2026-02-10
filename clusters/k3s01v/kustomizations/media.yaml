@@ -6,7 +6,7 @@ metadata:
 spec:
   interval: 5m
   path: ./k8s/media
-  prune: false
+  prune: true
   suspend: false
   sourceRef:
     kind: GitRepository
