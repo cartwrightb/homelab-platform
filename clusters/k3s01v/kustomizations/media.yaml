@@ -7,7 +7,7 @@ spec:
   interval: 5m
   path: ./k8s/media
   prune: false
-  suspend: true
+  suspend: false
   sourceRef:
     kind: GitRepository
     name: flux-system
