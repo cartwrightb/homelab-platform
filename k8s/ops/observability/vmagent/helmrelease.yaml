@@ -1,0 +1,35 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: vmagent
+  namespace: ops
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: victoria-metrics-agent
+      sourceRef:
+        kind: HelmRepository
+        name: victoria-metrics
+        namespace: ops
+      interval: 1h
+  values:
+    # Where vmagent remote-writes metrics to
+    remoteWrite:
+      - url: http://victoria-metrics-victoria-metrics-single-server:8428/api/v1/write
+
+    # Minimal scrape config to prove the pipeline
+    config:
+      global:
+        scrape_interval: 15s
+
+      scrape_configs:
+        # 1) scrape vmagent itself
+        - job_name: "vmagent"
+          static_configs:
+            - targets: ["vmagent-victoria-metrics-agent:8429"]
+
+        # 2) scrape kube-state-metrics service in ops
+        - job_name: "kube-state-metrics"
+          static_configs:
+            - targets: ["kube-state-metrics:8080"]
