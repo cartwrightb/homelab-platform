@@ -3,4 +3,5 @@ kind: Kustomization
 resources:
   - prometheus-community.yaml
   - victoria-metrics.yaml
+  - grafana.yaml
 
