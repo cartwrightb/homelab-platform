@@ -27,7 +27,7 @@ spec:
         # 1) scrape vmagent itself
         - job_name: "vmagent"
           static_configs:
-            - targets: ["vmagent-victoria-metrics-agent:8429"]
+            - targets: ["vmagent:8429"]
 
         # 2) scrape kube-state-metrics service in ops
         - job_name: "kube-state-metrics"
