@@ -1,4 +1,4 @@
-Homelab Platform
+# Homelab Platform
 
 A production-style Kubernetes platform built and operated as a
 self-directed Platform / SRE engineering project.
@@ -13,7 +13,7 @@ to understand behaviour, trade-offs, and failure modes.
 
 ------------------------------------------------------------------------
 
-Platform Overview
+## Platform Overview
 
 Core components currently include:
 
@@ -32,24 +32,24 @@ remaining intentionally constrained for clarity.
 
 ------------------------------------------------------------------------
 
-Design Principles
+## Design Principles
 
--   Declarative by default — infrastructure and workloads are
+-   **Declarative by default** --- infrastructure and workloads are
     Git-managed.
--   Reconciliation over manual intervention — drift is corrected
+-   **Reconciliation over manual intervention** --- drift is corrected
     automatically.
--   Observability first — metrics and logs are treated as core system
-    components.
--   Incremental complexity — tools are added only when a problem
+-   **Observability first** --- metrics and logs are treated as core
+    system components.
+-   **Incremental complexity** --- tools are added only when a problem
     justifies them.
--   Failure as a learning tool — components are intentionally stressed
-    or broken to understand behaviour under fault.
+-   **Failure as a learning tool** --- components are intentionally
+    stressed or broken to understand behaviour under fault.
 
 The goal is operational depth, not tool accumulation.
 
 ------------------------------------------------------------------------
 
-Operational Capabilities
+## Operational Capabilities
 
 This platform exercises practical SRE concerns including:
 
@@ -67,17 +67,17 @@ concerns.
 
 ------------------------------------------------------------------------
 
-Repository Structure
+## Repository Structure
 
-docs/ Architecture notes, design decisions, and failure documentation
-k8s/ Kubernetes manifests (infrastructure, platform services, workloads)
+    docs/    Architecture notes, design decisions, and failure documentation
+    k8s/     Kubernetes manifests (infrastructure, platform services, workloads)
 
 As the platform matures, additional automation and validation tooling
 will be introduced in a controlled manner.
 
 ------------------------------------------------------------------------
 
-Status
+## Status
 
 Actively evolving.
 
@@ -87,14 +87,14 @@ are intentional and documented.
 
 ------------------------------------------------------------------------
 
-Purpose
+## Purpose
 
 This project exists to bridge the gap between:
 
-“I understand the theory”
-and
-“I have designed, deployed, observed, broken, and recovered this system
-myself.”
+"I understand the theory"\
+and\
+"I have designed, deployed, observed, broken, and recovered this system
+myself."
 
 It is structured to reflect how modern Platform and SRE teams reason
 about infrastructure: through declarative state, observability, and
