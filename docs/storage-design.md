@@ -20,8 +20,12 @@ Protocol: - NFS export for Kubernetes - SMB share for desktop browsing
 
 Structure:
 
-media/ ├── incomplete-downloads ├── downloads ├── tv ├── movies └──
-books
+media/ 
+├── incomplete-downloads 
+├── downloads 
+├── tv 
+├── movies 
+└──
 
 Characteristics:
 
