@@ -1,95 +1,101 @@
-# Homelab Platform
+Homelab Platform
 
-This repository documents and manages my personal homelab platform, built to learn and apply DevOps, Platform Engineering, and Site Reliability Engineering (SRE) practices in a realistic, production-style environment.
+A production-style Kubernetes platform built and operated as a
+self-directed Platform / SRE engineering project.
 
-The platform evolves incrementally, starting from a single-node Kubernetes cluster and expanding over time to include GitOps workflows, automation, observability, security controls, and reliability patterns.
+This repository defines and manages a k3s-based Kubernetes environment
+using Git as the source of truth. The focus is not on running
+applications, but on understanding and operating the platform that runs
+them.
 
-While the cluster runs real workloads, the primary purpose of this project is learning, experimentation, and documentation of modern infrastructure practices.
+The system evolves incrementally, with tooling introduced deliberately
+to understand behaviour, trade-offs, and failure modes.
 
----
+------------------------------------------------------------------------
 
-## Goals
+Platform Overview
 
-- Build hands-on Kubernetes experience using real services
-- Practice Git-based workflows and declarative infrastructure
-- Apply SRE principles such as:
-  - Declarative configuration
-  - Drift control
-  - Automation over click-ops
-  - Incremental platform evolution
-- Develop a portfolio-quality project aligned with modern SRE / Platform roles
+Core components currently include:
 
----
+-   k3s (single-node, evolving toward multi-node)
+-   Flux (GitOps reconciliation)
+-   Traefik (Ingress)
+-   cert-manager (TLS automation)
+-   vmagent + kube-state-metrics (metrics pipeline)
+-   Grafana (visualisation)
+-   Loki (log aggregation, in progress)
+-   NFS-backed persistent storage
+-   Internal DNS (Pi-hole) with split-DNS via Tailscale
 
-## Scope & Philosophy
+The platform is designed to mirror real-world operational patterns while
+remaining intentionally constrained for clarity.
 
-This homelab is treated as a miniature production environment, not a toy setup:
+------------------------------------------------------------------------
 
-- Everything is documented and version-controlled
-- Manual changes are avoided in favour of Git-managed state
-- Failures are treated as learning opportunities
-- Complexity is introduced deliberately and incrementally
+Design Principles
 
-The emphasis is on how the platform is built and operated — not the specific applications running on it.
+-   Declarative by default — infrastructure and workloads are
+    Git-managed.
+-   Reconciliation over manual intervention — drift is corrected
+    automatically.
+-   Observability first — metrics and logs are treated as core system
+    components.
+-   Incremental complexity — tools are added only when a problem
+    justifies them.
+-   Failure as a learning tool — components are intentionally stressed
+    or broken to understand behaviour under fault.
 
----
+The goal is operational depth, not tool accumulation.
 
-## Workloads
+------------------------------------------------------------------------
 
-The cluster currently hosts a mix of infrastructure components and application workloads, including media-related services.
+Operational Capabilities
 
-These workloads are used purely as realistic, stateful Kubernetes examples to explore:
+This platform exercises practical SRE concerns including:
 
-- Persistent storage (NFS, PVCs, provisioning)
-- Ingress and TLS (Traefik, cert-manager)
-- Namespace isolation
-- Secrets and configuration management
-- Upgrade and recovery workflows
+-   GitOps-based deployment and drift control
+-   Ingress and TLS lifecycle management
+-   Persistent volume provisioning and stateful workload management
+-   Metrics ingestion and visualisation
+-   Log aggregation and query workflows
+-   Namespace isolation and configuration separation
+-   Upgrade and recovery testing
+-   Controlled failure experimentation
 
-They are not the focus of the project — the platform itself is.
+Workloads exist primarily as realistic test cases for these operational
+concerns.
 
----
+------------------------------------------------------------------------
 
-## Legal & Usage Notice
+Repository Structure
 
-IMPORTANT
+docs/ Architecture notes, design decisions, and failure documentation
+k8s/ Kubernetes manifests (infrastructure, platform services, workloads)
 
-This homelab is used strictly for legal purposes only.
+As the platform matures, additional automation and validation tooling
+will be introduced in a controlled manner.
 
-- All media managed or consumed through this platform is:
-  - Personally owned, or
-  - Freely and legally obtained, or
-  - Used for testing and demonstration purposes only
-- No copyrighted material is distributed, shared, or accessed unlawfully
+------------------------------------------------------------------------
 
-This project exists solely to demonstrate technical infrastructure design and operational practices, not content acquisition.
+Status
 
----
+Actively evolving.
 
-## Repository Structure
+This repository reflects a living system that changes as new concepts
+are learned, tested, and refined. Refactors and structural improvements
+are intentional and documented.
 
-docs/        # Architecture notes, design decisions, and learning documentation
-k8s/         # Kubernetes manifests (infra, platform services, workloads)
+------------------------------------------------------------------------
 
-Additional structure and tooling (GitOps, CI/CD, validation, etc.) will be introduced as the platform matures.
-
----
-
-## Status
-
-Actively evolving
-
-This repository reflects a living system that changes as new concepts are learned and applied.
-Expect refactors, restructuring, and iterative improvements over time.
-
----
-
-## Why This Exists
+Purpose
 
 This project exists to bridge the gap between:
 
 “I understand the theory”
 and
-“I have built and operated this myself”
+“I have designed, deployed, observed, broken, and recovered this system
+myself.”
 
-It is intentionally designed to mirror how modern SRE and Platform teams think, work, and evolve systems.
+It is structured to reflect how modern Platform and SRE teams reason
+about infrastructure: through declarative state, observability, and
+operational discipline.
