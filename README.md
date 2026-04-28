@@ -49,6 +49,34 @@ The goal is operational depth, not tool accumulation.
 
 ------------------------------------------------------------------------
 
+## AI-Assisted Engineering Workflow
+
+This platform is also used to explore modern AI-assisted operational and
+development workflows.
+
+AI agents (primarily via VS Code/Codex-style tooling) are used to assist
+with:
+
+- architectural review
+- operational reasoning
+- documentation refinement
+- manifest validation
+- repository consistency checks
+- troubleshooting workflows
+
+However, the focus remains on understanding systems deeply rather than
+blind automation or "vibe coding".
+
+All major platform decisions, operational patterns, and architectural
+changes are intentionally reviewed, tested, and understood as part of
+the learning process.
+
+The repository itself is treated as operational context:
+documentation, manifests, architecture notes, and runbooks are designed
+to support both human operators and AI-assisted workflows.
+
+------------------------------------------------------------------------
+
 ## Operational Capabilities
 
 This platform exercises practical SRE concerns including:
