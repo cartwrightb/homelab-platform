@@ -18,7 +18,7 @@ The emphasis is simplicity first, segmentation later.
 
 ### DNS
 
-- Pi-hole runs inside an LXC container on PVE1.
+- Pi-hole runs as `pihole01v`, an LXC container on `pve2`.
 - Internal domain: `home.lan`
 - DNS records support internal service access.
 

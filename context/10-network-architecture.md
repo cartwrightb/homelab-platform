@@ -27,8 +27,9 @@ Proxmox is the virtualization platform hosting the environment.
 Current important VMs include:
 
 - k3s01v
-- omv01
-- pihole01
+- fs01v
+- pihole01v
+- mediaserver01v
 
 ---
 
@@ -146,3 +147,13 @@ The environment prioritises:
 - avoiding unnecessary abstraction
 
 The platform intentionally avoids enterprise-scale complexity unless there is a learning or operational reason.
+
+## Workload Boundary
+
+The Kubernetes cluster is live and working. The household media services
+currently remain on Docker on `mediaserver01v`; their Kubernetes equivalents
+are the parallel target environment rather than the active household service
+instances.
+
+The private `homelab-knowledge-base` repository is authoritative for physical
+topology, current service placement, and addresses.

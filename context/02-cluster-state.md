@@ -31,6 +31,10 @@ Known namespaces include:
 
 Do not assume live cluster state from this file alone.
 
+Do not interpret a workload represented or deployed here as proof that it is
+the active household service. The established media services currently remain
+on Docker; consult the private knowledge base for current workload placement.
+
 If current state matters, check using:
 
 - kubectl get nodes
@@ -38,4 +42,3 @@ If current state matters, check using:
 - kubectl get pods -A
 - flux get kustomizations -A
 - flux get helmreleases -A
-

@@ -21,9 +21,6 @@ spec:
       size: 10Gi
       storageClassName: local-path
 
-    adminUser: admin
-    adminPassword: admin123  # temporary
-
     service:
       type: ClusterIP
 

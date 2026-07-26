@@ -29,3 +29,11 @@ The current major platform areas are:
 
 The purpose of the platform is both practical homelab hosting and learning production-style Kubernetes/GitOps patterns.
 
+The cluster and platform components are operational. The established
+household media services still run in Docker on `mediaserver01v`; the
+Kubernetes media workloads are a working parallel environment awaiting
+controlled cutover.
+
+The private `homelab-knowledge-base` repository is authoritative for current
+estate and workload placement. This repository is authoritative for
+Kubernetes desired state.

@@ -11,6 +11,15 @@ them.
 The system evolves incrementally, with tooling introduced deliberately
 to understand behaviour, trade-offs, and failure modes.
 
+This is a working parallel platform, not yet the primary runtime for the
+household media services. The established Jellyfin, Radarr, Sonarr, and
+SABnzbd instances continue to run in Docker while their Kubernetes
+equivalents are validated ahead of controlled, service-by-service cutover.
+
+The private `homelab-knowledge-base` repository is the source of truth for the
+wider estate and current workload placement. This public repository is the
+source of truth for Kubernetes desired state.
+
 ------------------------------------------------------------------------
 
 ## Platform Overview
@@ -25,7 +34,7 @@ Core components currently include:
 -   Grafana (visualisation)
 -   Loki (log aggregation, in progress)
 -   NFS-backed persistent storage
--   Internal DNS (Pi-hole) with split-DNS via Tailscale
+-   Internal DNS (Pi-hole); Tailscale split DNS is planned
 
 The platform is designed to mirror real-world operational patterns while
 remaining intentionally constrained for clarity.
@@ -85,9 +94,9 @@ This platform exercises practical SRE concerns including:
 -   Ingress and TLS lifecycle management
 -   Persistent volume provisioning and stateful workload management
 -   Metrics ingestion and visualisation
--   Log aggregation and query workflows
+-   Log aggregation and query workflows (in progress)
 -   Namespace isolation and configuration separation
--   Upgrade and recovery testing
+-   Upgrade and recovery testing as the platform matures
 -   Controlled failure experimentation
 
 Workloads exist primarily as realistic test cases for these operational
@@ -107,11 +116,27 @@ will be introduced in a controlled manner.
 
 ## Status
 
-Actively evolving.
+Actively evolving and operational.
 
 This repository reflects a living system that changes as new concepts
 are learned, tested, and refined. Refactors and structural improvements
 are intentional and documented.
+
+| Capability | Status |
+|---|---|
+| Single-node k3s cluster | Operational |
+| Flux GitOps reconciliation | Operational |
+| Traefik ingress and internal TLS | Operational |
+| NFS storage integration | Operational |
+| Metrics pipeline and Grafana | Operational |
+| Kubernetes media workloads | Built and working |
+| Household media-service cutover | Planned |
+| Backup and restore validation | In progress |
+| Multi-node expansion | Future |
+
+“Operational” means the Kubernetes capability has been implemented and
+verified. It does not imply that it currently carries the established
+household workload.
 
 ------------------------------------------------------------------------
 

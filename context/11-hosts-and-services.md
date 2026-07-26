@@ -4,7 +4,8 @@
 
 | Host | Role |
 |---|---|
-| proxmox01 | Main Proxmox hypervisor |
+| pve1 | Proxmox hypervisor |
+| pve2 | Proxmox hypervisor hosting `k3s01v` |
 
 ---
 
@@ -13,8 +14,9 @@
 | VM | Purpose |
 |---|---|
 | k3s01v | Single-node Kubernetes cluster |
-| omv01 | NFS storage server |
-| pihole01 | Internal DNS |
+| fs01v | File and NFS storage server |
+| pihole01v | Internal DNS |
+| mediaserver01v | Current Docker media-service host |
 
 ---
 
@@ -34,13 +36,13 @@
 
 ## Media Applications
 
-| Application | Hostname |
-|---|---|
-| Jellyfin | jellyfin.home.lan |
-| Sonarr | sonarr.home.lan |
-| Radarr | radarr.home.lan |
-| SABnzbd | sabnzbd.home.lan |
-| Grafana | grafana.home.lan |
+| Application | Kubernetes hostname | Household runtime |
+|---|---|---|
+| Jellyfin | jellyfin.home.lan | Docker; Kubernetes cutover planned |
+| Sonarr | sonarr.home.lan | Docker; Kubernetes cutover planned |
+| Radarr | radarr.home.lan | Docker; Kubernetes cutover planned |
+| SABnzbd | sabnzbd.home.lan | Docker; Kubernetes cutover planned |
+| Grafana | grafana.home.lan | Kubernetes platform |
 
 ---
 
@@ -84,3 +86,4 @@ cert-manager provides wildcard TLS certificates used by ingress resources.
 - Single-node Kubernetes
 - GitOps-first operational model
 - Internal-only PKI
+- Docker remains the current household media runtime
